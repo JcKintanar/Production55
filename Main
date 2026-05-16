@@ -1,0 +1,46 @@
+import React from 'react';
+
+const ProductionHousePreview = () => {
+  const projects = [
+    { title: 'CINEMATIC NOIR', year: '2025', image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1' },
+    { title: 'URBAN VISTAS', year: '2026', image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728' },
+    { title: 'THE LAST FRAME', year: '2024', image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26' },
+  ];
+
+  return (
+    <div className="bg-black text-white min-h-screen font-sans">
+      {/* Sleek Navigation - A24 Style */}
+      <nav className="flex justify-between items-center px-8 py-6 border-b border-gray-800 sticky top-0 bg-black z-50">
+        <h1 className="text-2xl font-bold tracking-tighter uppercase">Studio Alpha</h1>
+        <div className="space-x-8 text-sm font-medium tracking-widest uppercase">
+          <a href="#" className="hover:text-gray-400 transition">Films</a>
+          <a href="#" className="hover:text-gray-400 transition">Library</a>
+          <a href="#" className="hover:text-gray-400 transition">Contact</a>
+        </div>
+      </nav>
+
+      {/* Grid Layout - Shotdeck/True Food Style */}
+      <main className="p-4 md:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <div key={index} className="group relative overflow-hidden cursor-pointer">
+              <div className="aspect-[16/9] w-full overflow-hidden bg-gray-900">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                />
+              </div>
+              <div className="mt-4 flex justify-between items-end border-t border-gray-800 pt-2">
+                <h3 className="text-lg font-light uppercase tracking-tight">{project.title}</h3>
+                <span className="text-xs text-gray-500 font-mono">{project.year}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default ProductionHousePreview;
