@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-prod-pink: #ed077c;
+}
+
 html,
 body,
 #root {
@@ -28,8 +32,4 @@ body {
 
 a {
   color: inherit;
-}
-
-@theme {
-  --prod-pink: #ed077c;
 }

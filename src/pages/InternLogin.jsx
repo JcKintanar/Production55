@@ -1,8 +1,9 @@
 import { doSignInWithEmailAndPassword } from "../db/services/auth";
 import { useAuth } from "../db/authContext";
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import getErrorMessage from "../components/helper/LoginErrorMessageHelper";
 
 export default function InternLogin() {
   const { userLoggedIn } = useAuth();
@@ -16,9 +17,17 @@ export default function InternLogin() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!isSigningIn) {
-      setIsSigningIn(true);
+    if (isSigningIn) return;
+
+    setIsSigningIn(true);
+    setErrorMessage("");
+
+    try {
       await doSignInWithEmailAndPassword(email, password);
+    } catch (err) {
+      console.log(err.code);
+      setErrorMessage(getErrorMessage(err.code));
+      setIsSigningIn(false);
     }
   };
 
@@ -37,12 +46,15 @@ export default function InternLogin() {
     <div>
       {userLoggedIn && <Navigate to={"/intern-dashboard"} replace={true} />}
       <div className="flex justify-center items-center min-h-screen min-w-screen bg-white">
-        <div className="w-lg h-lg bg-black text-white rounded-md p-8">
+        <div className="w-lg bg-black text-white rounded-md p-8">
           <form onSubmit={onSubmit}>
             <div className="flex flex-col">
-              <label className="text-sm text-(--prod-pink) font-bold">
-                Email
-              </label>
+              {errorMessage && (
+                <span className="text-red-500 font-bold italic text-sm text-center">
+                  {errorMessage}
+                </span>
+              )}
+              <label className="text-sm text-prod-pink font-bold">Email</label>
               <input
                 type="email"
                 autoComplete="email"
@@ -52,9 +64,9 @@ export default function InternLogin() {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                className="text-white text-sm placeholder:text-gray-500 p-3 rounded-sm my-3 w-full border border-gray-600"
+                className="text-white text-sm placeholder:text-gray-500 p-3 rounded-sm my-3 w-full border border-gray-600 focus:outline-1"
               />
-              <label className="text-sm text-(--prod-pink) font-bold">
+              <label className="text-sm text-prod-pink font-bold">
                 Password
               </label>
               <div className="relative">
@@ -67,21 +79,33 @@ export default function InternLogin() {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
-                  className="text-white text-sm placeholder:text-gray-500 p-3 rounded-sm my-3 w-full border border-gray-600"
+                  className="text-white text-sm placeholder:text-gray-500 p-3 rounded-sm my-3 w-full border border-gray-600 focus:outline-1"
                 />
                 <button
                   type="button"
                   onClick={() => setShow((s) => !s)}
                   aria-label={show ? "Hide password" : "Show password"}
-                  className="absolute inset-y-0 right-4 flex items-center"
+                  className="absolute inset-y-0 py-auto right-4 flex items-center focus:outline-0"
                 >
                   {show ? (
-                    <EyeOff size={22} className="text-(--prod-pink)" />
+                    <EyeOff size={22} className="text-prod-pink" />
                   ) : (
-                    <Eye size={22} className="text-(--prod-pink)" />
+                    <Eye size={22} className="text-prod-pink" />
                   )}
                 </button>
               </div>
+              <button
+                type="submit"
+                className="bg-prod-pink w-full mt-4 p-2 rounded-sm focus:outline-1"
+              >
+                Login
+              </button>
+              <Link
+                to="/intern-register"
+                className="text-white text-center mt-4 hover:underline active:outline-0 focus:outline-1"
+              >
+                I don't have an account
+              </Link>
             </div>
           </form>
         </div>

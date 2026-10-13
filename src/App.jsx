@@ -10,9 +10,11 @@ import GearDetail from "./pages/GearDetail";
 import Reviews from "./pages/Reviews";
 import Contact from "./pages/Contact";
 import InternLogin from "./pages/InternLogin";
+import InternRegister from "./pages/InternRegister";
 import InternDashboard from "./pages/InternDashboard";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./db/authContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function MainHeaderLayout() {
   return (
@@ -42,7 +44,10 @@ function App() {
           </Route>
 
           <Route path="/intern-login" element={<InternLogin />} />
-          <Route path="/intern-dashboard" element={<InternDashboard />} />
+          <Route path="/intern-register" element={<InternRegister />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/intern-dashboard" element={<InternDashboard />} />
+          </Route>
         </Routes>
       </AuthProvider>
     </BrowserRouter>
