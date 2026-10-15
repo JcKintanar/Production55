@@ -3,7 +3,7 @@ import { useAuth } from "../db/authContext";
 import React, { useState } from "react";
 import { Navigate, Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import getErrorMessage from "../components/helper/LoginErrorMessageHelper";
+import { getLoginErrorMessage } from "../components/helper/UserAuthErrorMessageHelper";
 
 export default function InternLogin() {
   const { userLoggedIn } = useAuth();
@@ -26,7 +26,7 @@ export default function InternLogin() {
       await doSignInWithEmailAndPassword(email, password);
     } catch (err) {
       console.log(err.code);
-      setErrorMessage(getErrorMessage(err.code));
+      setErrorMessage(getLoginErrorMessage(err.code));
       setIsSigningIn(false);
     }
   };

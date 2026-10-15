@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useAuth } from "../db/authContext";
 import { doCreateUserWithEmailAndPassword } from "../db/services/auth";
 import { Eye, EyeOff } from "lucide-react";
-import getErrorMessage from "../components/helper/RegisterErrorMessageHelper";
+import { getRegisterErrorMessage } from "../components/helper/UserAuthErrorMessageHelper";
 
 export default function InternRegister() {
   const { userLoggedIn } = useAuth();
@@ -32,7 +32,7 @@ export default function InternRegister() {
       await doCreateUserWithEmailAndPassword(email, password);
     } catch (err) {
       console.log(err.code);
-      setErrorMessage(getErrorMessage(err.code));
+      setErrorMessage(getRegisterErrorMessage(err.code));
       setIsRegistering(false);
     }
   };
