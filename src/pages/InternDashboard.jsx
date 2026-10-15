@@ -1,31 +1,22 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "../db/authContext";
-import { doSignOut } from "../db/services/auth";
+import { WorkTimeTracker } from "../components/CurrentWorkTimeComponent";
 
 export default function InternDashboard() {
-  const navigate = useNavigate();
   const userLoggedIn = useAuth();
-
-  const signOut = async (e) => {
-    try {
-      await doSignOut();
-      navigate("/intern-login", { replace: true });
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <div>
       {!userLoggedIn && <Navigate to={"/intern-login"} replace={true} />}
-      <div className="w-full h-screen bg-white flex items-center justify-center">
-        <button
-          type="button"
-          onClick={signOut}
-          className="bg-black text-white text-lg cursor-pointer p-5"
-        >
-          sign out
-        </button>
+      <div className="w-full h-dvh bg-black">
+        <div className="flex flex-row h-[45vh] w-full">
+          {/* Clock-In widget thingy */}
+          <WorkTimeTracker />
+          {/* Total hours widget thingy */}
+          <div className="basis-[55vw] bg-red-800 px-[3vw] py-[5vh]">
+            <div className="w-full h-full bg-mist-900 rounded-xl"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
