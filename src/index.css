@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --color-prod-pink: #ed077c;
+  --font-prodFont: ProximaNova, sans-serif;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url("../src/assets/fonts/ProximaNovaBold.otf") format("opentype");
+}
+
 html,
 body,
 #root {
@@ -28,8 +38,4 @@ body {
 
 a {
   color: inherit;
-}
-
-@theme {
-  --prod-pink: #ed077c;
 }

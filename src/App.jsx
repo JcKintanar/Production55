@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import SiteHeader from "./components/SiteHeader";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Films from "./pages/Films";
 import Library from "./pages/Library";
@@ -10,42 +9,45 @@ import GearDetail from "./pages/GearDetail";
 import Reviews from "./pages/Reviews";
 import Contact from "./pages/Contact";
 import InternLogin from "./pages/InternLogin";
+import InternRegister from "./pages/InternRegister";
 import InternDashboard from "./pages/InternDashboard";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./db/authContext";
-
-function MainHeaderLayout() {
-  return (
-    <>
-      <SiteHeader />
-      <Outlet />
-    </>
-  );
-}
+import ProtectedRoute from "./components/ProtectedRoute";
+import MainHeaderLayout from "./components/headers/SiteHeader";
+import InternHeaderLayout from "./components/headers/InternSiteHeader";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route element={<MainHeaderLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/films" element={<Films />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/crew" element={<Crew />} />
-            <Route path="/crew/:id" element={<CrewMember />} />
-            <Route path="/gears" element={<Gears />} />
-            <Route path="/gears/:id" element={<GearDetail />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
+    <div className="font-prodFont">
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route element={<MainHeaderLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/films" element={<Films />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/crew" element={<Crew />} />
+              <Route path="/crew/:id" element={<CrewMember />} />
+              <Route path="/gears" element={<Gears />} />
+              <Route path="/gears/:id" element={<GearDetail />} />
+              <Route path="/reviews" element={<Reviews />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
 
-          <Route path="/intern-login" element={<InternLogin />} />
-          <Route path="/intern-dashboard" element={<InternDashboard />} />
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+            <Route path="/intern-login" element={<InternLogin />} />
+            <Route path="/intern-register" element={<InternRegister />} />
+
+            <Route element={<InternHeaderLayout />}>
+              <Route element={<ProtectedRoute />}>
+                <Route path="/intern-dashboard" element={<InternDashboard />} />
+              </Route>
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </div>
   );
 }
 
