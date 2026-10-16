@@ -18,6 +18,10 @@ body,
   background: #000;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background: #000;
   color: #fff;
@@ -34,8 +38,4 @@ body {
 ::selection {
   background: rgba(237, 3, 124, 0.35);
   color: #fff;
-}
-
-a {
-  color: inherit;
 }

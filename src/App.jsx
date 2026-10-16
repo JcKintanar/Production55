@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Films from "./pages/Films";
 import Library from "./pages/Library";
+import Gallery from "./pages/Gallery";
 import Crew from "./pages/Crew";
 import CrewMember from "./pages/CrewMember";
 import Gears from "./pages/Gears";
@@ -27,6 +28,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/films" element={<Films />} />
               <Route path="/library" element={<Library />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/crew" element={<Crew />} />
               <Route path="/crew/:id" element={<CrewMember />} />
               <Route path="/gears" element={<Gears />} />
