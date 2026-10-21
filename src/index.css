@@ -18,8 +18,16 @@ body,
   background: #000;
 }
 
-html {
+{/* html {
   overflow-y: scroll;
+} */}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.7s ease-in-out;
 }
 
 body {
