@@ -2,8 +2,6 @@ import { NavLink, Link, Outlet } from "react-router-dom";
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "Films", to: "/films" },
-  { label: "Library", to: "/library" },
   { label: "Gallery", to: "/gallery" },
   { label: "Crew", to: "/crew" },
   { label: "Gears", to: "/gears" },
