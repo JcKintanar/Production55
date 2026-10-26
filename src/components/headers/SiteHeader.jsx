@@ -7,11 +7,12 @@ const navItems = [
   { label: "Gears", to: "/gears" },
   { label: "Reviews", to: "/reviews" },
   { label: "Contact", to: "/contact" },
+  { label: "About Us", to: "/about-us" },
 ];
 
 const SiteHeader = () => {
   return (
-    <header className="sticky top-0 z-50 bg-black border-b border-gray-800 h-8vh overflow-y-hidden">
+    <header className="sticky top-0 z-50 bg-black border-b border-neutral-800 h-8vh">
       <div className="h-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-between px-6 gap-4">
         <div>
           <Link to="/" className="group grid overflow-hidden aspect-video">

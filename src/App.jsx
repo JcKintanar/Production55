@@ -7,6 +7,7 @@ import Gears from "./pages/Gears";
 import GearDetail from "./pages/GearDetail";
 import Reviews from "./pages/Reviews";
 import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
 import InternLogin from "./pages/InternLogin";
 import InternRegister from "./pages/InternRegister";
 import InternDashboard from "./pages/InternDashboard";
@@ -31,6 +32,7 @@ function App() {
               <Route path="/gears/:id" element={<GearDetail />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/about-us" element={<AboutUs />} />
               <Route path="*" element={<NotFound />} />
             </Route>
 
