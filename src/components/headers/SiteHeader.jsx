@@ -1,20 +1,33 @@
 import { NavLink, Link, Outlet } from "react-router-dom";
 
-const navItems = [
-  { label: "Home", to: "/" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "Crew", to: "/crew" },
-  { label: "Gears", to: "/gears" },
-  { label: "Reviews", to: "/reviews" },
-  { label: "Contact", to: "/contact" },
-  { label: "About Us", to: "/about-us" },
-];
-
 const SiteHeader = () => {
   return (
-    <header className="sticky top-0 z-50 bg-black border-b border-neutral-800 h-8vh">
-      <div className="h-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-between px-6 gap-4">
-        <div>
+    <header className="sticky top-0 z-50 bg-black h-8vh">
+      <div className="grid grid-cols-8">
+        <div className="flex justify-center my-auto">
+          <NavLink
+            to="/crew"
+
+            className={({ isActive }) =>
+              `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
+            }
+          >
+            CREW
+          </NavLink>
+        </div>
+
+        <div className="flex justify-center my-auto">
+          <NavLink
+            to="/gallery"
+
+            className={({ isActive }) =>
+              `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
+            }
+          >
+            GALLERY
+          </NavLink>
+        </div>
+        <div className="flex col-span-4 justify-center">
           <Link to="/" className="group grid overflow-hidden aspect-video">
             <img
               src="../../src/assets/logos/prod55-white.png"
@@ -26,21 +39,45 @@ const SiteHeader = () => {
             />
           </Link>
         </div>
+        <div className="flex justify-center my-auto">
+          <NavLink
+            to="/gears"
 
-        <nav className="flex flex-wrap gap-4 text-sm uppercase tracking-[0.3em] font-medium">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+            className={({ isActive }) =>
+              `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
+            }
+          >
+            GEARS
+          </NavLink>
+        </div>
+        <div className="flex justify-center my-auto">
+          <NavLink
+            to="/contact"
+
+            className={({ isActive }) =>
+              `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
+            }
+          >
+            CONTACT
+          </NavLink>
+        </div>
       </div>
+      {/* <div className="h-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-between px-6 gap-4"> */}
+      {/**/}
+      {/*   <nav className="flex flex-wrap gap-4 text-sm uppercase tracking-[0.3em] font-medium"> */}
+      {/*     {navItems.map((item) => ( */}
+      {/*       <NavLink */}
+      {/*         key={item.to} */}
+      {/*         to={item.to} */}
+      {/*         className={({ isActive }) => */}
+      {/*           `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}` */}
+      {/*         } */}
+      {/*       > */}
+      {/*         {item.label} */}
+      {/*       </NavLink> */}
+      {/*     ))} */}
+      {/*   </nav> */}
+      {/* </div> */}
     </header>
   );
 };
