@@ -1,6 +1,6 @@
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-const SiteHeader = () => {
+export default function ClientHeader() {
   return (
     <header className="sticky top-0 z-50 bg-black h-8vh">
       <div className="grid grid-cols-8">
@@ -79,14 +79,5 @@ const SiteHeader = () => {
       {/*   </nav> */}
       {/* </div> */}
     </header>
-  );
-};
-
-export default function MainHeaderLayout() {
-  return (
-    <>
-      <SiteHeader />
-      <Outlet />
-    </>
   );
 }

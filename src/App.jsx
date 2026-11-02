@@ -14,8 +14,8 @@ import InternDashboard from "./pages/InternDashboard";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./db/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import MainHeaderLayout from "./components/headers/SiteHeader";
-import InternHeaderLayout from "./components/headers/InternSiteHeader";
+import ClientPageLayout from "./components/layouts/ClientPageLayout";
+import InternPageLayout from "./components/layouts/InternPageLayout";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route element={<MainHeaderLayout />}>
+            <Route element={<ClientPageLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/gallery/:slug?" element={<Gallery />} />
               <Route path="/crew" element={<Crew />} />
@@ -39,7 +39,7 @@ function App() {
             <Route path="/intern-login" element={<InternLogin />} />
             <Route path="/intern-register" element={<InternRegister />} />
 
-            <Route element={<InternHeaderLayout />}>
+            <Route element={<InternPageLayout />}>
               <Route element={<ProtectedRoute />}>
                 <Route path="/intern-dashboard" element={<InternDashboard />} />
               </Route>
