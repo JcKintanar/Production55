@@ -32,10 +32,10 @@ export default function Gallery() {
         className="flex w-max transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${cameraX}vw)` }}
       >
-        <div className="w-screen shrink-0">
-          <div className="flex flex-row">
+        <div className="content-center min-h-lvh w-screen shrink-0">
+          <div className="min-h-lvh flex flex-row">
             {/* Left Area */}
-            <div className="basis-2/9 justify-start min-h-[calc(100dvh-8vh)]">
+            <div className="basis-2/9 justify-start">
               <div className="flex flex-col items-start justify-center h-full">
                 {projects.map((project) => (
                   <div
