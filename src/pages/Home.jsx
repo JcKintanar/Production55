@@ -1,62 +1,58 @@
-import Visuals from "../assets/visuals/visuals-white.png";
-import VisualsPink from "../assets/visuals/visuals-pink.png";
+import HighlightHoverText from "../components/HighlightHoverText";
+import HighlightHoverImage from "../components/HighlightHoverImage";
+import ClientsCarousel from "../components/carousel/NotableClientsCarousel";
+import { NavLink } from "react-router-dom";
 
-const Home = () => {
+export default function Home() {
   return (
-    <main className="h-dvh overflow-x-hidden bg-black text-white">
-      <div className="flex flex-col">
-        {/* first page */}
-        <div className="w-full h-screen">
-          <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-2">
-            <div className="min-h-0 min-w-0">a</div>
-            <div className="min-h-0 min-w-0">a</div>
+    <main>
+      {/* first page */}
+      {/* <div className="h-dvh overflow-x-hidden bg-black text-white"> */}
+      {/*   <div className="flex flex-col"> */}
+      {/*     <div className="w-full h-screen flex flex-col px-[7vw] pt-[8vh] overflow-x-hidden"> */}
+      {/*       <div className="mt-[25vh] text-center"> */}
+      {/*         <HighlightHoverText */}
+      {/*           text="production 55" */}
+      {/*           className="block text-[18.5vh] uppercase [text-box:trim-both_cap_alphabetic] select-none mr-[2vw]" */}
+      {/*         /> */}
+      {/*       </div> */}
+      {/*       <div className="font-prodFont text-4xl text-center w-[70%] mx-auto mt-[6vh] mb-[4vh] select-none"> */}
+      {/*         A full-service film & media production company crafting bespoke */}
+      {/*         cinematic experiences: from{" "} */}
+      {/*         <b> */}
+      {/*           <HighlightHoverText text="Vision" className="inline-block" /> */}
+      {/*         </b>{" "} */}
+      {/*         to{" "} */}
+      {/*         <b> */}
+      {/*           <HighlightHoverText text="Screen" className="inline-block" /> */}
+      {/*         </b>{" "} */}
+      {/*       </div> */}
+      {/*       <NavLink */}
+      {/*         to="/gallery" */}
+      {/*         className="bg-white text-black transition-colors hover:bg-prod-pink hover:text-white rounded-lg text-3xl py-[1.5vh] px-[2vh] mx-auto w-fit cursor-pointer ease-in-out duration-500" */}
+      {/*       > */}
+      {/*         <b>See works</b> */}
+      {/*       </NavLink> */}
+      {/*       <div className="w-[70%] mt-[12vh] mx-auto flex items-center gap-6 opacity-50"> */}
+      {/*         <div className="w-full border-t border-white" /> */}
+      {/*         <div className="whitespace-nowrap text-lg uppercase font-prodFont"> */}
+      {/*           notable clients */}
+      {/*         </div> */}
+      {/*         <div className="w-full border-t border-white" /> */}
+      {/*       </div> */}
+      {/*       <div className="w-[70%] flex items-center mx-auto mt-[3vh]"> */}
+      {/*         <ClientsCarousel /> */}
+      {/*       </div> */}
+      {/*     </div> */}
+      {/*   </div> */}
+      {/* </div> */}
 
-            <div className="flex min-h-0 min-w-0 flex-col justify-end pl-[2vw] pb-[1vh] uppercase">
-              <div className="text-[5vw] leading-snug">production 55</div>
-              <div className="text-2xl">
-                description time, lorem ipsum dolor and lorem ipsum dolor,
-                lorem. description time, lorem ipsum dolor and lorem ipsum
-                dolor, lorem. lorem ipsum, dolor, ipsum, dolor. lorem ipsum,
-                dolor, ipsum, dolor.
-              </div>
-            </div>
-
-            <div className="relative min-h-0 min-w-0 overflow-hidden">
-              <img
-                src={VisualsPink}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* second page */}
-        <div className="w-full h-screen">
-          <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-2">
-            <div className="min-h-0 min-w-0">a</div>
-            <div className="min-h-0 min-w-0">a</div>
-
-            <div className="flex min-h-0 min-w-0 flex-col justify-end pl-[2vw] pb-[1vh] uppercase">
-              <div className="text-[5vw] leading-snug">production 55</div>
-              <div className="text-2xl">
-                description time, lorem ipsum dolor and lorem ipsum dolor,
-                lorem. description time, lorem ipsum dolor and lorem ipsum
-                dolor, lorem. lorem ipsum, dolor, ipsum, dolor. lorem ipsum,
-                dolor, ipsum, dolor.
-              </div>
-            </div>
-
-            <div className="relative min-h-0 min-w-0 overflow-hidden">
-              <img
-                src={VisualsPink}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          </div>
+      {/* second page */}
+      <div className="h-dvh overflow-x-hidden bg-black text-white p">
+        <div className="w-full h-screen flex flex-col overflow-x-hidden">
+          <HighlightHoverImage className="w-[40%] h-[50%] object-scale-down" />
         </div>
       </div>
     </main>
   );
-};
-
-export default Home;
+}

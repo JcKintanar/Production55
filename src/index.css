@@ -2,12 +2,23 @@
 
 @theme {
   --color-prod-pink: #ed077c;
-  --font-prodFont: ProximaNova, sans-serif;
+  --font-prodFont-bold: ProximaNova, sans-serif;
+  --font-prodFont: HarmoniaSans, sans-serif;
+  --animate-marquee: marquee 70s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
 }
 
 @font-face {
   font-family: ProximaNova;
   src: url("../src/assets/fonts/ProximaNovaBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: HarmoniaSans;
+  src: url("../src/assets/fonts/HarmoniaSansProCyr-SemiBd.otf") format("opentype");
 }
 
 html,
