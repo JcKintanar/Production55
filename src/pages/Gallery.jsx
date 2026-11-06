@@ -32,48 +32,31 @@ export default function Gallery() {
         className="flex w-max transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${cameraX}vw)` }}
       >
-        <div className="content-center min-h-lvh w-screen shrink-0">
-          <div className="min-h-lvh flex flex-row">
-            {/* Left Area */}
-            <div className="basis-2/9 justify-start">
-              <div className="flex flex-col items-start justify-center h-full">
-                {projects.map((project) => (
-                  <div
-                    key={project.slug}
-                    className="flex justify-center py-2 ml-[4vw] pr-auto"
-                  >
-                    <div
-                      className={`w-fit cursor-pointer text-lg transition-colors ease-in-out ${currentSelectedProject.projectName === project.projectName ? "text-prod-pink" : "text-white"} hover:text-prod-pink`}
-                      onClick={() => onProjectNameClick(project)}
-                    >
-                      {project.projectName}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Center Area */}
+        <div className="content-center min-h-lvh w-screen shrink-0 pt-[5vh]">
+          <div className="h-full flex flex-col">
+            {/* projects carousel */}
             <ProjectsCarousel
               selectedProject={currentSelectedProject}
               onClickProject={panCameraToRight}
               onSelectProject={onProjectNameClick}
             />
-
-            {/* Right Area */}
-            <div className="basis-2/9 justify-start min-h-[calc(100dvh-8vh)]">
-              <div className="flex flex-col items-end justify-center h-full">
-                {currentSelectedProject && (
-                  <div className="flex justify-end-safe">
-                    <div
-                      key={currentSelectedProject.projectName}
-                      className="animate-fade-in w-fit text-lg text-right mr-[4vw]"
-                    >
+            {/* project brief details */}
+            <div className="flex flex-col h-full">
+              {currentSelectedProject && (
+                <div className="mt-[3vh] mx-auto">
+                  <div
+                    key={currentSelectedProject.projectName}
+                    className="animate-fade-in w-full text-center"
+                  >
+                    <div className="text-4xl">
+                      {currentSelectedProject.projectName}
+                    </div>
+                    <div className="text-2xl font-prodFont">
                       {currentSelectedProject.briefDesc}
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

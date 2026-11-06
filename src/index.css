@@ -4,7 +4,7 @@
   --color-prod-pink: #ed077c;
   --font-prodFont-bold: ProximaNova, sans-serif;
   --font-prodFont: HarmoniaSans, sans-serif;
-  --animate-marquee: marquee 70s linear infinite;
+  --animate-marquee: marquee 100s linear infinite;
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
