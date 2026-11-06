@@ -54,13 +54,13 @@ export default function ClientHeader() {
         </div>
         <div className="flex justify-center my-auto pointer-events-auto">
           <NavLink
-            to="/contact"
+            to="/reviews"
 
             className={({ isActive }) =>
               `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
             }
           >
-            CONTACT
+            REVIEWS
           </NavLink>
         </div>
       </div>
