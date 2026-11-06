@@ -19,7 +19,7 @@ import InternPageLayout from "./components/layouts/InternPageLayout";
 
 function App() {
   return (
-    <div className="font-prodFont">
+    <div className="font-prodFont-bold">
       <BrowserRouter>
         <AuthProvider>
           <Routes>

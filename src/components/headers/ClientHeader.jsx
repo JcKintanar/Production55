@@ -4,7 +4,7 @@ import LogoPink from "../../assets/logos/prod55-pink.png";
 
 export default function ClientHeader() {
   return (
-    <header className="absolute top-0 z-50 pointer-events-none bg-none w-screen overflow-x-hidden">
+    <header className="absolute top-0 z-50 pointer-events-none bg-none w-full overflow-x-hidden">
       <div className="grid grid-cols-8 pointer-events-auto">
         <div className="flex justify-center my-auto pointer-events-auto">
           <NavLink
@@ -54,13 +54,13 @@ export default function ClientHeader() {
         </div>
         <div className="flex justify-center my-auto pointer-events-auto">
           <NavLink
-            to="/contact"
+            to="/reviews"
 
             className={({ isActive }) =>
               `transition-colors ${isActive ? "text-prod-pink" : "text-gray-300 hover:text-white"}`
             }
           >
-            CONTACT
+            REVIEWS
           </NavLink>
         </div>
       </div>

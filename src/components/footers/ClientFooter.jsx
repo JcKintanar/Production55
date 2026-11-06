@@ -9,7 +9,7 @@ export default function MainFooter() {
   const [errorMessage, setErrorMessage] = useState("");
 
   return (
-    <footer className="border-t border-gray-800 relative w-full h-full pt-10 mt-10">
+    <footer className="border-t border-gray-800 relative w-full h-full pt-10">
       <div className="flex flex-row h-full">
         {/* socmed icons/link */}
         <div className="basis-1/2">
@@ -75,7 +75,7 @@ export default function MainFooter() {
 
       {/* copyright thingy */}
       <div className="bottom-0 w-full h-[3vh] mt-10">
-        <div className="text-center text-sm text-neutral-500 uppercase">
+        <div className="font-prodFont text-center text-sm text-neutral-500">
           Copyright (c) 2026 ibutang pani nako diri? gi suon ra nako ang og nga
           website. All Rights Reserved.
         </div>
